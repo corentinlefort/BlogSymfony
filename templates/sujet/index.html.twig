@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma'Forum{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block head %}<body>{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div id="content">
+    <h2 style="text-align: center;">{{ sujet.titre }}</h2>
+    <div id="sujet">
+        {% set i = 1 %}
+        {% for message in messages %}
+            {% if i%2 == 0 %}
+                <div class="messagePair">
+                    <h3>{{ message.pseudoUser }}</h3>
+                    <p>{{ message.corps }}</p><p class="date">{{ message.dateCre|date('Y-m-d H:i:s') }}</p><br><br>
+                    {% set i = 1 %}
+                </div>
+            {% else %}
+                <div class="messageImpair">
+                    <h3>{{ message.pseudoUser }}</h3>
+                    <p>{{ message.corps }}</p><p class="date">{{ message.dateCre|date('Y-m-d H:i:s') }}</p><br><br>
+                    {% set i = 2 %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div><br><br>
+
+</div>
+<form method="post">
+    <div id="content">
+        <h3 style="text-align: center; margin-left: 0px">Répondre au sujet</h3>
+        <div id="formulaireReponse">
+            {% if app.user %}
+                <div class="formCreerSujet" align="center">
+                    {{ form_start(reponseForm) }}
+
+
+                    {{ form_end(reponseForm) }}
+                    <button class="customButton" type="submit">
+                        Répondre
+                    </button>
+                </div>
+            {% else %}
+                <h2 style="color:darkred">Vous n'êtes pas connecté. Veuillez vous identifier pour répondre.</h2>
+            {% endif %}
+        </div>
+    </div>
+</form>
+</body>
+{% endblock %}

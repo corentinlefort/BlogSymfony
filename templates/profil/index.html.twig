@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma'Forum{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block head %}<body>{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div id="content">
+    <div id="profile" class="main_content">
+        {% if app.user %}
+            <h2>{{ app.user.username }}</h2><br><br>
+            <p>Nombre de messages envoyés : {{ nbMsg }}</p>
+            <p>Date d'inscription : {{ dateInscription|date('Y-m-d') }}</p>
+        {% else %}
+            <h2 style="color:darkred">Vous n'êtes pas connecté. Veuillez vous identifier pour accéder à cette page.</h2>
+        {% endif %}
+    </div>
+</div>
+</body>
+{% endblock %}

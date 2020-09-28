@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block stylesheets %}<style>
+            {% include 'css/styles.css' %}
+        </style>{% endblock %}
+    </head>
+    {% block head %}
+        <div id="header">
+            <div class="top">
+                <h1>Programma'Forum</h1>
+                <div class="connection" align="right" bg-color="red">
+                    {% if app.user %}
+                        <div id="connectedUser">
+                            <p>Bienvenue {{ app.user.username }}. </p><a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </div>
+                    {% else %}
+                        <a href="/login"><input type="button" class="customButton" value="Connexion" /></a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        <div id="navBar">
+            <ul>
+                <li><a href="/accueil">Accueil</a></li>
+                <li><a href="/categories">Catégories</a></li>
+                <li><a href="/profil">Profil</a></li>
+                <li style="background: rgba(98,98,98,0.71)"><a href="/sujet/create">+ Nouveau sujet</a></li>
+            </ul>
+        </div>
+    {% endblock %}
+
+        {% block body %}
+
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+
+</html>

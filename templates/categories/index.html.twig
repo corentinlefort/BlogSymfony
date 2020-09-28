@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma'Forum{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block head %}<body>{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div id="content">
+    <h2 style="text-align: center;">Liste des catégories</h2>
+    <div id="categories">
+        <!-- Affichage des catégories -->
+        {% for categorie in categories %}
+            <a href="/categories/{{ categorie.id }}">{{ categorie.nom }}</a><br>
+        {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock %}

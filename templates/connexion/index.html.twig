@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma'Forum{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block head %}<body>{% endblock %}
+{% block body %}
+
+
+
+    <div align="center" id="connexion" class="formulaire">
+        <h2>Se connecter</h2>
+        <!-- formulaire connexion -->
+        <form id="connexion">
+            <caption>Nom d'utilisateur <input type="text" id="username"/></caption><br>
+            <caption>Mot de passe <input type="password" id="username"/></caption><br>
+            <input class="customButton" type="submit" value="Connexion"/>
+        </form>
+    </div>
+
+    <div align="center" id="inscription" class="formulaire">
+        <h2>S'inscrire</h2>
+        <!-- formulaire inscription -->
+        <form id="inscription">
+            <caption>Nom d'utilisateur <input type="text" id="username"/></caption><br>
+            <caption>Adresse mail <input type="text" id="username"/></caption><br>
+            <caption>Mot de passe <input type="password" id="username"/></caption><br>
+            <input class="customButton" type="submit" value="Inscription"/>
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma'Forum{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block head %}<body>{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div id="content">
+    <h2 style="text-align: center;">Liste des sujets</h2>
+    <div id="sujets">
+        {% for sujet in sujets %}
+            <a href="/sujet/view/{{ sujet.id }}">{{ sujet.titre }}</a><br>
+        {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock %}
